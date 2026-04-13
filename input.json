@@ -1,0 +1,91 @@
+{
+    "_comment": " model parameters",
+    "model": {
+	"type_map":	["Al", "O", "N"],
+	"descriptor" :{
+	    "type":		"se_e2_a",
+	    "sel":		"auto",
+	    "rcut_smth":	5.5,
+	    "rcut":		6.50,
+	    "neuron":		[25, 50, 100],
+	    "resnet_dt":	false,
+	    "axis_neuron":	16,
+	    "seed":		1,
+	    "_comment":		" that's all"
+	},
+	"fitting_net" : {
+	    "neuron":		[240, 240, 240],
+	    "resnet_dt":	true,
+	    "seed":		1,
+	    "_comment":		" that's all"
+	},
+	"_comment":	" that's all"
+    },
+
+    "learning_rate" :{
+	"type":		"exp",
+	"decay_steps":	5000,
+	"start_lr":	0.001,	
+	"stop_lr":	3.51e-8,
+	"_comment":	"that's all"
+    },
+
+    "loss" :{
+	"type":		"ener",
+	"start_pref_e":	0.02,
+	"limit_pref_e":	1,
+	"start_pref_f":	2000,
+	"limit_pref_f":	200,
+	"start_pref_v":	0.02,
+	"limit_pref_v":	1.0,
+	"_comment":	" that's all"
+    },
+
+    "training" : {
+	"training_data": {
+	    "systems":		[
+	              "../init/Al2O3_300_500/training_data",
+                      "../init/Al2O3_500_1200/training_data",
+                      "../init/AlN300_500/training_data",
+                      "../init/AlN500_1200/training_data",
+                      "../init/inf300_500_1/training_data",
+                      "../init/inf300_500_2/training_data",
+	              "../init/inf500_700/training_data",
+	              "../init/dataset/training_data",
+	              "../init/Al2O3strain/0.02/training_data",
+		      "../init/Al2O3strain/0.04/training_data",
+		      "../init/Al2O3strain/minus0.02/training_data",
+		      "../init/Al2O3strain/minus0.02/training_data",
+		      "../init/AlNstrain/0.02/training_data",
+		      "../init/AlNstrain/0.04/training_data",
+		      "../init/AlNstrain/minus0.02/training_data",
+		      "../init/AlNstrain/minus0.04/training_data"
+	    ],
+	    "batch_size":	"auto",
+	    "_comment":		"that's all"
+	},
+	"validation_data":{
+	    "systems":		[
+		      "../init/Al2O3_300_500/validation_data",
+                      "../init/Al2O3_500_1200/validation_data",
+                      "../init/AlN300_500/validation_data",
+                      "../init/AlN500_1200/validation_data",
+                      "../init/inf300_500_1/validation_data",
+                      "../init/inf300_500_2/validation_data",
+                      "../init/inf500_700/validation_data",
+                      "../init/dataset/validation_data"],
+	    "batch_size":	1,
+	    "numb_btch":	3,
+	    "_comment":		"that's all"
+	},
+	"numb_steps":	1000000,
+	"seed":		10,
+	"disp_file":	"lcurve.out",
+	"disp_freq":	4000,
+	"save_freq":	40000,
+	"_comment":	"that's all"
+    },    
+
+    "_comment":		"that's all"
+}
+
